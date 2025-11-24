@@ -18,92 +18,59 @@ const io = new Server(httpServer, {
 let patients = [
   { 
     id: 1, 
-    code: 'AX-381', 
-    rut: '12.345.678-9',
-    name: 'Juan Parra', 
+    code: 'VS-100', 
+    rut: '22.152.183-8',
+    name: 'Vicente Alejandro Saa Vargas', 
     stage: 'waiting', 
     status: 'EN SALA DE ESPERA', 
     category: 'C3',
-    comment: 'Paciente ingresado, signos vitales estables.', 
-    lastUpdate: '10:30' 
+    comment: 'Paciente ingresado para demostración.', 
+    lastUpdate: '08:30' 
   },
   { 
     id: 2, 
-    code: 'BX-202', 
-    rut: '9.876.543-2',
-    name: 'María González', 
+    code: 'VG-200', 
+    rut: '22.102.520-2',
+    name: 'Vicente Alfonso García Tapia', 
     stage: 'box', 
-    status: 'EN BOX 3', 
-    category: 'C2',
-    comment: 'Evaluación médica en curso.', 
-    lastUpdate: '10:15' 
+    status: 'EN UCI', 
+    category: 'C1',
+    comment: 'Daños generales en el corazón. Pronóstico reservado.', 
+    lastUpdate: '09:15' 
   },
   { 
     id: 3, 
-    code: 'CX-105', 
-    rut: '11.222.333-4',
-    name: 'Carlos Ruiz', 
+    code: 'WJ-300', 
+    rut: '20.525.065-4',
+    name: 'Wilson Alexis Jara Pérez', 
     stage: 'exams', 
-    status: 'EN RAYOS X', 
+    status: 'EN IMAGENOLOGÍA', 
     category: 'C4',
-    comment: 'Traslado a imagenología.', 
-    lastUpdate: '09:45' 
+    comment: 'Chequeo de meniscos por dolor crónico.', 
+    lastUpdate: '10:00' 
   },
   { 
     id: 4, 
-    code: 'DX-991', 
-    rut: '5.555.555-5',
-    name: 'Ana López', 
-    stage: 'waiting', 
-    status: 'EN SALA DE ESPERA', 
-    category: 'C5',
-    comment: 'Esperando llamado para triage.', 
-    lastUpdate: '10:40' 
+    code: 'BL-400', 
+    rut: '22.204.706-4',
+    name: 'Benjamín Amaro Lazo Roldán', 
+    stage: 'box', 
+    status: 'EN REANIMACIÓN', 
+    category: 'C1',
+    comment: 'Paro cardíaco por exceso de bebidas energéticas.', 
+    lastUpdate: '09:45' 
   },
   { 
     id: 5, 
-    code: 'EX-112', 
-    rut: '15.111.222-3',
-    name: 'Pedro Pascal', 
-    stage: 'waiting', 
-    status: 'EN SALA DE ESPERA', 
-    category: 'C4',
-    comment: 'Dolor abdominal leve.', 
-    lastUpdate: '10:45' 
-  },
-  { 
-    id: 6, 
-    code: 'FX-334', 
-    rut: '18.444.555-6',
-    name: 'Laura Bozzo', 
-    stage: 'waiting', 
-    status: 'EN SALA DE ESPERA', 
-    category: 'C3',
-    comment: 'Fiebre alta.', 
-    lastUpdate: '10:50' 
-  },
-  { 
-    id: 7, 
-    code: 'GX-556', 
-    rut: '20.777.888-9',
-    name: 'Roberto Gómez', 
+    code: 'DA-500', 
+    rut: '19.622.479-3',
+    name: 'Diego Alberto Allendes Zepeda', 
     stage: 'waiting', 
     status: 'EN SALA DE ESPERA', 
     category: 'C5',
-    comment: 'Control rutinario.', 
-    lastUpdate: '10:55' 
-  },
-  { 
-    id: 8, 
-    code: 'HX-778', 
-    rut: '10.999.000-1',
-    name: 'Gabriela Mistral', 
-    stage: 'waiting', 
-    status: 'EN SALA DE ESPERA', 
-    category: 'C2',
-    comment: 'Dificultad respiratoria.', 
-    lastUpdate: '11:00' 
-  },
+    comment: 'Consulta general por alergia estacional.', 
+    lastUpdate: '10:20' 
+  }
 ];
 
 let isAlertMode = false;
