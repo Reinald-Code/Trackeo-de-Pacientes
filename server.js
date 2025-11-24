@@ -25,6 +25,7 @@ let patients = [
     stage: 'waiting', 
     status: 'EN SALA DE ESPERA', 
     category: 'C3',
+    admissionReason: 'Dolor abdominal agudo',
     comment: 'Paciente ingresado para demostración.', 
     lastUpdate: '08:30' 
   },
@@ -36,6 +37,7 @@ let patients = [
     stage: 'box', 
     status: 'EN UCI', 
     category: 'C1',
+    admissionReason: 'Insuficiencia cardíaca severa',
     comment: 'Daños generales en el corazón. Pronóstico reservado.', 
     lastUpdate: '09:15' 
   },
@@ -47,6 +49,7 @@ let patients = [
     stage: 'exams', 
     status: 'EN IMAGENOLOGÍA', 
     category: 'C4',
+    admissionReason: 'Traumatismo en rodilla derecha',
     comment: 'Chequeo de meniscos por dolor crónico.', 
     lastUpdate: '10:00' 
   },
@@ -58,6 +61,7 @@ let patients = [
     stage: 'box', 
     status: 'EN REANIMACIÓN', 
     category: 'C1',
+    admissionReason: 'Paro cardiorrespiratorio',
     comment: 'Paro cardíaco por exceso de bebidas energéticas.', 
     lastUpdate: '09:45' 
   },
@@ -69,6 +73,7 @@ let patients = [
     stage: 'waiting', 
     status: 'EN SALA DE ESPERA', 
     category: 'C5',
+    admissionReason: 'Reacción alérgica cutánea',
     comment: 'Consulta general por alergia estacional.', 
     lastUpdate: '10:20' 
   },
@@ -81,6 +86,7 @@ let patients = [
     stage: 'waiting', 
     status: 'EN SALA DE ESPERA', 
     category: 'C3',
+    admissionReason: 'Hipertensión descompensada',
     comment: 'Paciente ingresado, signos vitales estables.', 
     lastUpdate: '10:30' 
   },
@@ -92,6 +98,7 @@ let patients = [
     stage: 'box', 
     status: 'EN BOX 3', 
     category: 'C2',
+    admissionReason: 'Sospecha de apendicitis',
     comment: 'Evaluación médica en curso.', 
     lastUpdate: '10:15' 
   },
@@ -103,6 +110,7 @@ let patients = [
     stage: 'exams', 
     status: 'EN RAYOS X', 
     category: 'C4',
+    admissionReason: 'Esguince de tobillo',
     comment: 'Traslado a imagenología.', 
     lastUpdate: '09:45' 
   },
@@ -114,6 +122,7 @@ let patients = [
     stage: 'waiting', 
     status: 'EN SALA DE ESPERA', 
     category: 'C5',
+    admissionReason: 'Cefalea tensional',
     comment: 'Esperando llamado para triage.', 
     lastUpdate: '10:40' 
   },
@@ -125,6 +134,7 @@ let patients = [
     stage: 'waiting', 
     status: 'EN SALA DE ESPERA', 
     category: 'C4',
+    admissionReason: 'Gastroenteritis aguda',
     comment: 'Dolor abdominal leve.', 
     lastUpdate: '10:45' 
   },
@@ -136,6 +146,7 @@ let patients = [
     stage: 'waiting', 
     status: 'EN SALA DE ESPERA', 
     category: 'C3',
+    admissionReason: 'Síndrome febril',
     comment: 'Fiebre alta.', 
     lastUpdate: '10:50' 
   },
@@ -147,6 +158,7 @@ let patients = [
     stage: 'waiting', 
     status: 'EN SALA DE ESPERA', 
     category: 'C5',
+    admissionReason: 'Control post-operatorio',
     comment: 'Control rutinario.', 
     lastUpdate: '10:55' 
   },
@@ -158,6 +170,7 @@ let patients = [
     stage: 'waiting', 
     status: 'EN SALA DE ESPERA', 
     category: 'C2',
+    admissionReason: 'Crisis asmática',
     comment: 'Dificultad respiratoria.', 
     lastUpdate: '11:00' 
   },

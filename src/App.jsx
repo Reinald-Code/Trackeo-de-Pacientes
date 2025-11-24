@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Activity, AlertTriangle, CheckCircle, Clock, Info, MapPin, User, Search, Monitor, Plus, Edit, Save, X, ShieldAlert, Lock, LogOut, Trash2 } from 'lucide-react';
+import { Activity, AlertTriangle, CheckCircle, Clock, Info, MapPin, User, Search, Monitor, Plus, Edit, Save, X, ShieldAlert, Lock, LogOut, Trash2, FileText, Stethoscope } from 'lucide-react';
 import { io } from 'socket.io-client';
 
 // Conexión al servidor Socket.io
@@ -61,6 +61,7 @@ function App() {
       rut: patientData.rut,
       name: patientData.name,
       category: patientData.category,
+      admissionReason: patientData.admissionReason || 'Consulta General',
       stage: 'admission',
       status: 'EN ADMISIÓN',
       comment: 'Ingreso reciente.',
@@ -214,7 +215,7 @@ function AdminPanel({ patients, onAddPatient, onUpdatePatient, onDeletePatient, 
   
   // Estado para el modal de nuevo paciente
   const [showAddModal, setShowAddModal] = useState(false);
-  const [newPatientForm, setNewPatientForm] = useState({ rut: '', name: '', category: 'C5' });
+  const [newPatientForm, setNewPatientForm] = useState({ rut: '', name: '', category: 'C5', admissionReason: '' });
 
   const startEdit = (patient) => {
     setEditingId(patient.id);
@@ -230,7 +231,7 @@ function AdminPanel({ patients, onAddPatient, onUpdatePatient, onDeletePatient, 
     e.preventDefault();
     if (!newPatientForm.rut || !newPatientForm.name) return;
     onAddPatient(newPatientForm);
-    setNewPatientForm({ rut: '', name: '', category: 'C5' });
+    setNewPatientForm({ rut: '', name: '', category: 'C5', admissionReason: '' });
     setShowAddModal(false);
   };
 
@@ -304,6 +305,17 @@ function AdminPanel({ patients, onAddPatient, onUpdatePatient, onDeletePatient, 
                     ))}
                   </select>
                 </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Motivo de Ingreso</label>
+                  <textarea 
+                    required
+                    placeholder="Ej: Dolor torácico, Accidente de tránsito..."
+                    value={newPatientForm.admissionReason}
+                    onChange={e => setNewPatientForm({...newPatientForm, admissionReason: e.target.value})}
+                    className="w-full p-2 border rounded-lg"
+                    rows="2"
+                  />
+                </div>
                 <div className="flex justify-end gap-2 mt-6">
                   <button 
                     type="button"
@@ -331,6 +343,7 @@ function AdminPanel({ patients, onAddPatient, onUpdatePatient, onDeletePatient, 
                 <th className="p-4 font-semibold text-gray-600">Código</th>
                 <th className="p-4 font-semibold text-gray-600">RUT</th>
                 <th className="p-4 font-semibold text-gray-600">Nombre</th>
+                <th className="p-4 font-semibold text-gray-600">Motivo Ingreso</th>
                 <th className="p-4 font-semibold text-gray-600">Categoría</th>
                 <th className="p-4 font-semibold text-gray-600">Etapa (Sistema)</th>
                 <th className="p-4 font-semibold text-gray-600">Estado (Visible)</th>
@@ -348,6 +361,15 @@ function AdminPanel({ patients, onAddPatient, onUpdatePatient, onDeletePatient, 
                   {/* Editable Fields */}
                   {editingId === patient.id ? (
                     <>
+                      <td className="p-4">
+                        <input 
+                          type="text" 
+                          value={editForm.admissionReason || ''}
+                          onChange={e => setEditForm({...editForm, admissionReason: e.target.value})}
+                          className="w-full p-2 border rounded-lg text-sm"
+                          placeholder="Motivo..."
+                        />
+                      </td>
                       <td className="p-4">
                         <select 
                           value={editForm.category || 'C5'}
@@ -395,6 +417,9 @@ function AdminPanel({ patients, onAddPatient, onUpdatePatient, onDeletePatient, 
                     </>
                   ) : (
                     <>
+                      <td className="p-4 text-sm text-gray-600 max-w-xs truncate" title={patient.admissionReason}>
+                        {patient.admissionReason || '-'}
+                      </td>
                       <td className="p-4">
                         {patient.category && TRIAGE_CATEGORIES[patient.category] ? (
                           <span className={`px-2 py-1 rounded text-xs font-bold ${TRIAGE_CATEGORIES[patient.category].color} ${TRIAGE_CATEGORIES[patient.category].text}`}>
@@ -536,6 +561,24 @@ function MobileTracker({ patient, onBack }) {
       </header>
 
       <main className="flex-1 p-6 space-y-6">
+        {/* Clinical Summary Card */}
+        <div className="bg-white rounded-2xl p-5 shadow-sm border border-blue-100 relative overflow-hidden">
+          <div className="absolute top-0 right-0 p-4 opacity-10">
+            <FileText size={80} className="text-primary" />
+          </div>
+          <div className="flex items-start gap-4 relative z-10">
+            <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-primary flex-shrink-0">
+              <Stethoscope size={24} />
+            </div>
+            <div>
+              <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wide mb-1">Motivo de Ingreso</h3>
+              <p className="text-lg font-semibold text-dark leading-tight">
+                {patient.admissionReason || "Consulta General"}
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Status Card */}
         <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center space-y-2 relative overflow-hidden">
           {/* Category Badge */}
