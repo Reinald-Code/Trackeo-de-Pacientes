@@ -16,6 +16,7 @@ const io = new Server(httpServer, {
 
 // --- Base de Datos en Memoria ---
 let patients = [
+  // --- Tus Amigos (Demo) ---
   { 
     id: 1, 
     code: 'VS-100', 
@@ -70,7 +71,96 @@ let patients = [
     category: 'C5',
     comment: 'Consulta general por alergia estacional.', 
     lastUpdate: '10:20' 
-  }
+  },
+  // --- Pacientes de Relleno (Originales) ---
+  { 
+    id: 6, 
+    code: 'AX-381', 
+    rut: '12.345.678-9',
+    name: 'Juan Parra', 
+    stage: 'waiting', 
+    status: 'EN SALA DE ESPERA', 
+    category: 'C3',
+    comment: 'Paciente ingresado, signos vitales estables.', 
+    lastUpdate: '10:30' 
+  },
+  { 
+    id: 7, 
+    code: 'BX-202', 
+    rut: '9.876.543-2',
+    name: 'María González', 
+    stage: 'box', 
+    status: 'EN BOX 3', 
+    category: 'C2',
+    comment: 'Evaluación médica en curso.', 
+    lastUpdate: '10:15' 
+  },
+  { 
+    id: 8, 
+    code: 'CX-105', 
+    rut: '11.222.333-4',
+    name: 'Carlos Ruiz', 
+    stage: 'exams', 
+    status: 'EN RAYOS X', 
+    category: 'C4',
+    comment: 'Traslado a imagenología.', 
+    lastUpdate: '09:45' 
+  },
+  { 
+    id: 9, 
+    code: 'DX-991', 
+    rut: '5.555.555-5',
+    name: 'Ana López', 
+    stage: 'waiting', 
+    status: 'EN SALA DE ESPERA', 
+    category: 'C5',
+    comment: 'Esperando llamado para triage.', 
+    lastUpdate: '10:40' 
+  },
+  { 
+    id: 10, 
+    code: 'EX-112', 
+    rut: '15.111.222-3',
+    name: 'Pedro Pascal', 
+    stage: 'waiting', 
+    status: 'EN SALA DE ESPERA', 
+    category: 'C4',
+    comment: 'Dolor abdominal leve.', 
+    lastUpdate: '10:45' 
+  },
+  { 
+    id: 11, 
+    code: 'FX-334', 
+    rut: '18.444.555-6',
+    name: 'Laura Bozzo', 
+    stage: 'waiting', 
+    status: 'EN SALA DE ESPERA', 
+    category: 'C3',
+    comment: 'Fiebre alta.', 
+    lastUpdate: '10:50' 
+  },
+  { 
+    id: 12, 
+    code: 'GX-556', 
+    rut: '20.777.888-9',
+    name: 'Roberto Gómez', 
+    stage: 'waiting', 
+    status: 'EN SALA DE ESPERA', 
+    category: 'C5',
+    comment: 'Control rutinario.', 
+    lastUpdate: '10:55' 
+  },
+  { 
+    id: 13, 
+    code: 'HX-778', 
+    rut: '10.999.000-1',
+    name: 'Gabriela Mistral', 
+    stage: 'waiting', 
+    status: 'EN SALA DE ESPERA', 
+    category: 'C2',
+    comment: 'Dificultad respiratoria.', 
+    lastUpdate: '11:00' 
+  },
 ];
 
 let isAlertMode = false;
