@@ -32,6 +32,21 @@ const FOOTER_MESSAGES = [
   "Lave sus manos frecuentemente"
 ];
 
+// --- Utils ---
+const formatRut = (rut) => {
+  if (!rut) return '';
+  // Limpiar por si acaso viene con puntos
+  const cleanRut = rut.replace(/\./g, '');
+  const parts = cleanRut.split('-');
+  if (parts.length < 2) return cleanRut;
+  
+  const body = parts[0];
+  const dv = parts[1];
+  
+  // Formatear cuerpo con puntos
+  return `${body.replace(/\B(?=(\d{3})+(?!\d))/g, ".")}-${dv}`;
+};
+
 function App() {
   const [view, setView] = useState('mobile-login'); // mobile-login, mobile-tracker, tv-dashboard, admin-panel
   const [patients, setPatients] = useState([]);
@@ -284,7 +299,7 @@ function AdminPanel({ patients, onAddPatient, onUpdatePatient, onDeletePatient, 
                   <input 
                     type="text" 
                     required
-                    placeholder="Ej: 12.345.678-9"
+                    placeholder="Ej: 12345678-9 (Sin puntos)"
                     value={newPatientForm.rut}
                     onChange={e => setNewPatientForm({...newPatientForm, rut: e.target.value})}
                     className="w-full p-2 border rounded-lg"
@@ -363,7 +378,9 @@ function AdminPanel({ patients, onAddPatient, onUpdatePatient, onDeletePatient, 
               {patients.map(patient => (
                 <tr key={patient.id} className="hover:bg-gray-50 transition-colors">
                   <td className="p-4 font-mono font-bold text-primary">{patient.code}</td>
-                  <td className="p-4 font-mono text-sm bg-yellow-50 text-yellow-700 font-medium">{patient.rut}</td>
+                  <td className="p-4 font-mono text-sm bg-yellow-50 text-yellow-700 font-medium whitespace-nowrap">
+                    {formatRut(patient.rut)}
+                  </td>
                   <td className="p-4">{patient.name}</td>
                   
                   {/* Editable Fields */}
@@ -514,7 +531,7 @@ function MobileLogin({ patients, onLogin }) {
                 setInputRut(e.target.value);
                 setError('');
               }}
-              placeholder="Ej: 12.345.678-9"
+              placeholder="Ej: 12345678-9 (Sin puntos)"
               className={`w-full px-4 py-3 rounded-xl border ${error ? 'border-danger' : 'border-gray-200'} focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-lg`}
             />
             {error && <p className="text-danger text-xs mt-2 flex items-center gap-1"><AlertTriangle size={12}/> {error}</p>}

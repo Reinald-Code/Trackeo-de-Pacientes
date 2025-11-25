@@ -20,7 +20,7 @@ let patients = [
   { 
     id: 2, 
     code: 'VG-200', 
-    rut: '22.102.520-2',
+    rut: '22102520-2',
     name: 'Vicente Alfonso García Tapia', 
     stage: 'box', 
     status: 'EN UCI', 
@@ -32,7 +32,7 @@ let patients = [
   { 
     id: 3, 
     code: 'WJ-300', 
-    rut: '20.525.065-4',
+    rut: '20525065-4',
     name: 'Wilson Alexis Jara Pérez', 
     stage: 'exams', 
     status: 'EN IMAGENOLOGÍA', 
@@ -44,7 +44,7 @@ let patients = [
   { 
     id: 4, 
     code: 'BL-400', 
-    rut: '22.204.706-4',
+    rut: '22204706-4',
     name: 'Benjamín Amaro Lazo Roldán', 
     stage: 'box', 
     status: 'EN REANIMACIÓN', 
@@ -56,7 +56,7 @@ let patients = [
   { 
     id: 5, 
     code: 'DA-500', 
-    rut: '19.622.479-3',
+    rut: '19622479-3',
     name: 'Diego Alberto Allendes Zepeda', 
     stage: 'waiting', 
     status: 'EN SALA DE ESPERA', 
@@ -69,7 +69,7 @@ let patients = [
   { 
     id: 6, 
     code: 'AX-381', 
-    rut: '12.345.678-9',
+    rut: '12345678-9',
     name: 'Juan Parra', 
     stage: 'waiting', 
     status: 'EN SALA DE ESPERA', 
@@ -81,7 +81,7 @@ let patients = [
   { 
     id: 7, 
     code: 'BX-202', 
-    rut: '9.876.543-2',
+    rut: '9876543-2',
     name: 'María González', 
     stage: 'box', 
     status: 'EN BOX 3', 
@@ -93,7 +93,7 @@ let patients = [
   { 
     id: 8, 
     code: 'CX-105', 
-    rut: '11.222.333-4',
+    rut: '11222333-4',
     name: 'Carlos Ruiz', 
     stage: 'exams', 
     status: 'EN RAYOS X', 
@@ -105,7 +105,7 @@ let patients = [
   { 
     id: 9, 
     code: 'DX-991', 
-    rut: '5.555.555-5',
+    rut: '5555555-5',
     name: 'Ana López', 
     stage: 'waiting', 
     status: 'EN SALA DE ESPERA', 
@@ -117,7 +117,7 @@ let patients = [
   { 
     id: 10, 
     code: 'EX-112', 
-    rut: '15.111.222-3',
+    rut: '15111222-3',
     name: 'Pedro Pascal', 
     stage: 'waiting', 
     status: 'EN SALA DE ESPERA', 
@@ -129,7 +129,7 @@ let patients = [
   { 
     id: 11, 
     code: 'FX-334', 
-    rut: '18.444.555-6',
+    rut: '18444555-6',
     name: 'Laura Bozzo', 
     stage: 'waiting', 
     status: 'EN SALA DE ESPERA', 
@@ -141,7 +141,7 @@ let patients = [
   { 
     id: 12, 
     code: 'GX-556', 
-    rut: '20.777.888-9',
+    rut: '20777888-9',
     name: 'Roberto Gómez', 
     stage: 'waiting', 
     status: 'EN SALA DE ESPERA', 
@@ -153,7 +153,7 @@ let patients = [
   { 
     id: 13, 
     code: 'HX-778', 
-    rut: '10.999.000-1',
+    rut: '10999000-1',
     name: 'Gabriela Mistral', 
     stage: 'waiting', 
     status: 'EN SALA DE ESPERA', 
