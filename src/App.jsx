@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Activity, AlertTriangle, CheckCircle, Clock, Info, MapPin, User, Search, Monitor, Plus, Edit, Save, X, ShieldAlert, Lock, LogOut, Trash2, FileText, Stethoscope } from 'lucide-react';
+import { Activity, AlertTriangle, CheckCircle, Clock, Info, MapPin, User, Search, Monitor, Plus, Edit, Save, X, ShieldAlert, Lock, LogOut, Trash2, FileText, Stethoscope, Eye, EyeOff } from 'lucide-react';
 import { io } from 'socket.io-client';
 
 // Conexión al servidor Socket.io
@@ -163,6 +163,7 @@ function App() {
 
 function AdminLogin({ onLogin }) {
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
@@ -186,17 +187,24 @@ function AdminLogin({ onLogin }) {
         </div>
         
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
+          <div className="relative">
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Ingrese Clave"
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none"
+              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none pr-12"
               autoFocus
             />
-            {error && <p className="text-danger text-xs mt-2">{error}</p>}
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary transition-colors"
+            >
+              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+            </button>
           </div>
+          {error && <p className="text-danger text-xs mt-2">{error}</p>}
           <button
             type="submit"
             className="w-full bg-primary text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
