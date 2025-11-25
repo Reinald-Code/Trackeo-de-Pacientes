@@ -336,8 +336,8 @@ function AdminPanel({ patients, onAddPatient, onUpdatePatient, onDeletePatient, 
           </div>
         )}
 
-        <div className="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-200">
-          <table className="w-full text-left">
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-x-auto">
+          <table className="w-full text-left min-w-[1200px]">
             <thead className="bg-gray-50 border-b border-gray-200">
               <tr>
                 <th className="p-4 font-semibold text-gray-600">Código</th>
@@ -348,7 +348,7 @@ function AdminPanel({ patients, onAddPatient, onUpdatePatient, onDeletePatient, 
                 <th className="p-4 font-semibold text-gray-600">Etapa (Sistema)</th>
                 <th className="p-4 font-semibold text-gray-600">Estado (Visible)</th>
                 <th className="p-4 font-semibold text-gray-600">Comentario</th>
-                <th className="p-4 font-semibold text-gray-600 text-right">Acciones</th>
+                <th className="p-4 font-semibold text-gray-600 text-right whitespace-nowrap w-24">Acciones</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
@@ -408,7 +408,7 @@ function AdminPanel({ patients, onAddPatient, onUpdatePatient, onDeletePatient, 
                           rows="2"
                         />
                       </td>
-                      <td className="p-4 text-right">
+                      <td className="p-4 text-right whitespace-nowrap">
                         <div className="flex justify-end gap-2">
                           <button onClick={saveEdit} className="p-2 text-success hover:bg-green-50 rounded-lg"><Save size={18} /></button>
                           <button onClick={() => setEditingId(null)} className="p-2 text-danger hover:bg-red-50 rounded-lg"><X size={18} /></button>
@@ -434,7 +434,7 @@ function AdminPanel({ patients, onAddPatient, onUpdatePatient, onDeletePatient, 
                       </td>
                       <td className="p-4 font-medium">{patient.status}</td>
                       <td className="p-4 text-sm text-gray-500 max-w-xs truncate">{patient.comment}</td>
-                      <td className="p-4 text-right">
+                      <td className="p-4 text-right whitespace-nowrap">
                         <div className="flex justify-end gap-2">
                           <button onClick={() => startEdit(patient)} className="p-2 text-primary hover:bg-blue-50 rounded-lg">
                             <Edit size={18} />
