@@ -550,7 +550,7 @@ function MobileTracker({ patient, onBack }) {
   return (
     <div className="max-w-md mx-auto min-h-screen bg-gray-50 flex flex-col">
       {/* Header */}
-      <header className="bg-white px-6 py-4 shadow-sm flex items-center justify-between sticky top-0 z-10">
+      <header className="bg-white px-6 py-4 shadow-sm flex items-center justify-between sticky top-0 z-50">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white">
             <Activity size={18} />

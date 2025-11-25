@@ -18,18 +18,6 @@ const io = new Server(httpServer, {
 let patients = [
   // --- Tus Amigos (Demo) ---
   { 
-    id: 1, 
-    code: 'VS-100', 
-    rut: '22.152.183-8',
-    name: 'Vicente Alejandro Saa Vargas', 
-    stage: 'waiting', 
-    status: 'EN SALA DE ESPERA', 
-    category: 'C3',
-    admissionReason: 'Dolor abdominal agudo',
-    comment: 'Paciente ingresado para demostración.', 
-    lastUpdate: '08:30' 
-  },
-  { 
     id: 2, 
     code: 'VG-200', 
     rut: '22.102.520-2',
